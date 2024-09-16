@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../public/logo-white.png";
+---
+
+<!-- src/components/Footer.astro -->
+<footer class="bg-gray-800 text-white p-6 mt-12">
+  <div
+    class="container mx-auto flex flex-col md:flex-row justify-between items-center"
+  >
+  <ul class="flex space-x-4 items-center">
+    <Image src={logo} class="w-24" alt="logo" />
+    <p class="text-sm">
+      &copy; 2024 El Diseño Vive.
+    </p>
+  </ul>
+  
+  </div>
+</footer>

@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../public/logo-white.png";
+
+---
+
+<!-- src/components/Navbar.astro -->
+<nav class="bg-gray-800 text-white p-4 fixed z-50 w-full">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="text-xl font-bold">
+      <Image src={logo} class="w-24" alt="logo" />
+    </div>
+  </div>
+</nav>
