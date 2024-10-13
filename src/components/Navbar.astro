@@ -1,14 +1,50 @@
 ---
+// Importación de la imagen
 import { Image } from "astro:assets";
 import logo from "../../public/logo-white.png";
-
 ---
 
 <!-- src/components/Navbar.astro -->
 <nav class="bg-gray-800 text-white p-4 fixed z-50 w-full">
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-xl font-bold">
-      <Image src={logo} class="w-24" alt="logo" />
+      <Image src={logo} class="w-full max-h-16" alt="logo" />
+    </div>
+
+    <!-- Botón del menú hamburguesa en dispositivos pequeños -->
+    <div class="block lg:hidden">
+      <button
+        type="button"
+        class="text-white focus:outline-none"
+        id="menu-toggle"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Links del menú -->
+    <div id="menu" class="lg:flex hidden flex-col lg:flex-row lg:gap-8 items-center lg:w-auto w-full absolute top-20 left-0 lg:relative lg:top-0 text-center bg-gray-800">
+      <a href="#about" class="block lg:inline-block py-2 lg:py-0">Sobre nosotros</a>
+      <a href="#portfolios" class="block lg:inline-block py-2 lg:py-0">Portafolios</a>
+      <a href="#follow" class="block lg:inline-block py-2 lg:py-0">Síguenos</a>
     </div>
   </div>
 </nav>
+
+<!-- Script para manejar el estado del menú -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    
+    menuToggle.addEventListener('click', function() {
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+    });
+  });
+</script>
